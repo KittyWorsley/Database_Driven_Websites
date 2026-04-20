@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
-<html>
-    <head>
+<!<!doctype html>
+<html lang="en"
+        <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title> About Us</title>
+        <link rel="stylesheet" href="style.css"
     </head>
     <body>
-
-
+<?php include 'header.php';?>
+      <title> Teddy Bear Shop</title>  
         <?php
         session_start();
         include 'config.php';

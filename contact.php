@@ -1,41 +1,40 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
--->
-<?php include 'includes/header.php'; ?>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>Contact Us</title>
+<!<!Doctype html>
+<html lang="en"
+        <head>
+        <meta charset="UTF-8">
+        <title> About Us</title>
+        <link rel="stylesheet" href="style.css"
     </head>
+ <?php include 'header.php'; ?>
     <body>
-        <main>
-            <<h1>Contact us</h1>  
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $name = htmlspecialchars($_POST['name']);
-                $email = htmlspecialchars($_POST['email']);
-                $message = htmlspecialchars($_POST['message']);
+<main>
+    <h1>Contact Us</h1>
+    <p>Send Email</p>
 
-                if (!empty($name) && !empty($email) && !empty($message)) {
-                    echo '<p> Thank you,$name. Your message has been sent</p>';
-                } else {
-                    echo '<P> Plesde complete all fields.</p>';
-                }
-                ?>
+    <form name="contactForm" action="contact.php" method="post" onsubmit="return validateForm()">
+        
+        <input type="text" name="name" placeholder="Full name">
+        <input type="text" name="email" placeholder="Your Email">
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" placeholder="Message"></textarea>
 
-            <form method ='POST'>
-                <label for='name'>Name:</label><br
-                    input type='text' name='name' id='name' required><br><br>
+        <button type="submit" name="submit">Send Email</button>
+    </form>
+</main>
+    </body>
 
-                <label for='email'>Email:</label><br>
-                <input type='email' name='email' id='email' required><br><br>
+<script>
+function validateForm() {
+    var name = document.forms["contactForm"]["name"].value;
+    var email = document.forms["contactForm"]["email"].value;
+    var message = document.forms["contactForm"]["message"].value;
 
-                <label for='message'>Message:</label><br>
-                <textarea name='message' id='message' required><br><br>
+    if (name === "" || email === "" || message === "") {
+        alert("Please fill in all required fields");
+        return false;
+    }
+}
+</script>
 
-                <button type='submit'> Send Message</button>
-            </form>
-        </main>
-</html>
+<?php include 'footer.php';
+
